@@ -1,0 +1,15 @@
+---
+# Install s3cmd tool
+- name: Install s3cmd tool
+  apt: 
+    name: s3cmd 
+    state: present
+
+# To configure s3cmd I need to create an s3 bucket that will be used along with the keys...
+- name: Setup s3cmd configuration file for root user
+  template:
+    src: "templates/.s3cfg.j2"
+    dest: "/root/.s3cfg"
+    owner: root
+    group: root
+    mode: "0600"

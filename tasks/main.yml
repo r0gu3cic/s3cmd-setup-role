@@ -1,0 +1,4 @@
+---
+- name: Setup s3cmd tool on a server
+  import_tasks: s3cmd_setup.yml
+  when: ansible_facts['distribution'] | lower == 'ubuntu'
